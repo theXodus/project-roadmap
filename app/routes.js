@@ -1,4 +1,3 @@
-var Roadmap = require('./models/roadmap');
 var Checkpoint = require('./models/checkpoint');
 
 module.exports = function(app) {
@@ -6,71 +5,12 @@ module.exports = function(app) {
   // -------------------------------------------
   // ROADMAP ROUTES
   // -------------------------------------------
-  // Get all Roadmaps
-  app.get('/api/roadmaps', function(req, res) {
-    Roadmap.find(function(err, roadmaps) {
-      if (err)
-      res.send(err)
-
-      res.json(roadmaps);
-    });
-  });
-  // Get a single Roadmap
-  app.get('/api/roadmaps/:roadmap_id', function(req, res) {
-    Roadmap.findById(req.params.roadmap_id).populate('checkpoints').exec(function(err, roadmap) {
-      if (err)
-      res.send(err);
-
-      res.json(roadmap);
-    })
-  });
-  // Create Roadmap
-  app.post('/api/roadmaps', function(req, res) {
-    Roadmap.create({
-      name: req.body.name,
-      done: false
-    }, function(err, roadmap) {
-      if (err)
-      res.send(err);
-
-      Roadmap.find(function(err, roadmaps) {
-        if (err)
-        res.send(err);
-
-        res.json(roadmaps);
-      });
-    });
-  });
-  // Edit Roadmap
-  app.put('/api/roadmaps/:roadmap_id', function(req, res) {
-    Roadmap.findById(req.params.roadmap_id, function(err, roadmap){
-      if (err)
-      res.send(err);
-
-      roadmap.name = req.body.name
-      roadmap.save(function(err){
-        if (err)
-        res.send(err);
-
-        res.send({message: "Roadmap Updated"});
-      })
-    })
-  })
-  // Delete Roadmap
-  app.delete('/api/roadmaps/:roadmap_id', function(req, res) {
-    Roadmap.remove({
-      _id: req.params.roadmap_id
-    }, function(err, roadmap) {
-      if (err)
-      res.send(err);
-
-      Roadmap.find(function(err, roadmaps) {
-        if (err)
-        res.send(err);
-        res.json(roadmaps);
-      });
-    });
-  });
+  var roadmaps = require('./controllers/roadmaps')
+  app.get('/api/roadmaps', roadmaps.index); // Get all Roadmaps
+  app.post('/api/roadmaps', roadmaps.create); // Create Roadmap
+  app.get('/api/roadmaps/:roadmap_id', roadmaps.show); // Get a single Roadmap
+  app.put('/api/roadmaps/:roadmap_id', roadmaps.update) // Update Roadmap
+  app.delete('/api/roadmaps/:roadmap_id', roadmaps.delete); // Delete Roadmap
 
   // -------------------------------------------
   // CHECKPOINT ROUTES

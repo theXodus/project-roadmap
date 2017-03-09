@@ -2,6 +2,7 @@ Things to do:
   ☐ Ensure that checkpoints are deleted when a roadmap is deleted.
   ☐ Split up the angular parts into their own folders and files
   ☐ Use Todd Motto style guide to refactor code
+  ☐ Make routes.js DRYer
   ☐ Add Users
 
 
