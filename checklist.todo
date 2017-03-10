@@ -1,11 +1,11 @@
 Things to do:
   ☐ Ensure that checkpoints are deleted when a roadmap is deleted.
   ☐ Split up the angular parts into their own folders and files
-  ☐ Use Todd Motto style guide to refactor code
-  ☐ Make routes.js DRYer
-  ☐ Add Users
+  ☐ Add Passport
 
 
 ================================================================================
 Archive:
+  ✔ Use Todd Motto style guide to refactor code @done(2017-03-10 00:52) @project(Things to do)
+  ✔ Make routes.js DRYer @done(2017-03-10 00:52) @project(Things to do)
   ✔ Clean up the backend @done(2017-03-09 16:34) @project(Things to do)
