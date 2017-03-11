@@ -1,53 +1,54 @@
 (function() {
   function roadmapCtrl($http, $scope, $stateParams, roadmapFactory) {
-    $scope.formData = {};
-    $scope.checkpoints = [];
+    var roadmap = this;
+    roadmap.formData = {};
+    roadmap.checkpoints = [];
 
     var roadmap_id = $stateParams.id;
 
     roadmapFactory.getRoadmap(roadmap_id)
       .then(function(res) {
-        $scope.checkpoints = res.data.checkpoints;
-        $scope.roadmapTitle = res.data.name;
+        roadmap.checkpoints = res.data.checkpoints;
+        roadmap.title = res.data.name;
       }, function(res) {
         console.log('Error: ' + res);
       })
 
-    this.createCheckpoint = function() {
-      roadmapFactory.createCheckpoint(roadmap_id, $scope.formData)
+    roadmap.createCheckpoint = function() {
+      roadmapFactory.createCheckpoint(roadmap_id, roadmap.formData)
         .then(function(res) {
-          $scope.formData = {};
-          this.checkpoints = res.data;
+          roadmap.formData = {};
+          roadmap.checkpoints = res.data;
+
         }, function(res) {
           console.log('Error: ' + res);
         });
     }
 
     $scope.editedCheckpoint = {};
-    // Keeps track of the index for the edit form
-    this.CPindex = -1;
+    roadmap.CPindex = -1; // Keeps track of the index for the edit form
 
-    this.toggleEditForm = function(cp, index) {
-      this.show = true;
-      this.CPindex = index;
+    roadmap.toggleEditForm = function(cp, index) {
+      roadmap.show = true;
+      roadmap.CPindex = index;
       $scope.editedCheckpoint = angular.copy(cp);
     }
 
-    this.updateCheckpoint = function(checkpoint) {
-      this.show = false;
-      this.CPindex = -1;
+    roadmap.updateCheckpoint = function(checkpoint) {
+      roadmap.show = false;
+      roadmap.CPindex = -1;
       roadmapFactory.updateCheckpoint(checkpoint._id, $scope.editedCheckpoint)
         .then(function(res) {
-          this.checkpoints = res.data;
+          roadmap.checkpoints = res.data;
         }, function(res) {
           console.log('Error: ' + res);
         })
     }
 
-    this.deleteCheckpoint = function(id) {
+    roadmap.deleteCheckpoint = function(id) {
       roadmapFactory.deleteCheckpoint(id)
         .then(function(res) {
-          this.checkpoints = res.data;
+          roadmap.checkpoints = res.data;
         }, function(res) {
           console.log('Error: ' + res);
         });

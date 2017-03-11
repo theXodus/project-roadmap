@@ -1,15 +1,18 @@
 var mongoose = require('mongoose');
+var Checkpoint = require('../models/checkpoint');
 
 var roadmapSchema = mongoose.Schema({
   name: String,
   checkpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: "Checkpoint"}]
 })
 
-roadmapSchema.methods.addCheckpoint = function(checkpoint, cb) {
-  this.checkpoints.push(checkpoint._id);
-  checkpoint.save(function(err) {
-    this.save();
-  }).bind(this);
+roadmapSchema.statics = {
+  getAll: function(id, cb) {
+      return this
+          .findById(id)
+          .populate('checkpoints')
+          .exec(cb);
+  }
 }
 
 var Roadmap = mongoose.model('Roadmap', roadmapSchema);

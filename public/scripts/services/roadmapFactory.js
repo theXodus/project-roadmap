@@ -7,7 +7,7 @@
     }
 
     roadmapFactory.createCheckpoint = function(id, data) {
-      return $http.post('/api/roadmaps/' + data + '/checkpoints', data)
+      return $http.post('/api/roadmaps/' + id + '/checkpoints', data)
     }
 
     roadmapFactory.updateCheckpoint = function(id, data) {

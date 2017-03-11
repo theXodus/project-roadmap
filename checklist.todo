@@ -1,11 +1,19 @@
 Things to do:
-  ☐ Ensure that checkpoints are deleted when a roadmap is deleted.
-  ☐ Split up the angular parts into their own folders and files
   ☐ Add Passport
+  ☐ User can enroll in roadmap
+  ☐ User can create account
+  ☐ User can edit profile
+
+  Checkpoint:
+    ☐ Three types of checkpoints(link, article, video)
+    ☐ User can complete a checkpoint
 
 
 ================================================================================
 Archive:
+  ✔ Ensure that checkpoints are deleted when a roadmap is deleted. @done(2017-03-11 01:29) @project(Things to do)
+  ✔ Add/edit/delete checkpoints without refresh @done(2017-03-11 01:29) @project(Things to do)
+  ✔ Split up the angular parts into their own folders and files @done(2017-03-10 14:53) @project(Things to do)
   ✔ Use Todd Motto style guide to refactor code @done(2017-03-10 00:52) @project(Things to do)
   ✔ Make routes.js DRYer @done(2017-03-10 00:52) @project(Things to do)
   ✔ Clean up the backend @done(2017-03-09 16:34) @project(Things to do)

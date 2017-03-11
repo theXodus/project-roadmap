@@ -16,6 +16,7 @@ module.exports = function(app) {
   // CHECKPOINT ROUTES
   // -------------------------------------------
   var checkpoints = require('./controllers/checkpoints')
+  app.get('/api/checkpoints/:id', checkpoints.show); // get single checkpoint
   app.post('/api/roadmaps/:roadmap_id/checkpoints', checkpoints.create); // Create Checkpoint
   app.put('/api/checkpoints/:checkpoint_id', checkpoints.update); // Update Checkpoint
   app.delete('/api/checkpoints/:checkpoint_id', checkpoints.delete); // Delete Checkpoint
