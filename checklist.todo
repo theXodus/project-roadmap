@@ -1,8 +1,9 @@
 Things to do:
-  ☐ Add Passport
+  ☐ Add authentication 
   ☐ User can enroll in roadmap
   ☐ User can create account
   ☐ User can edit profile
+  ☐ Add more error checking and validation to auth.js(register)
 
   Checkpoint:
     ☐ Three types of checkpoints(link, article, video)

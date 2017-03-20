@@ -1,4 +1,9 @@
 var Checkpoint = require('./models/checkpoint');
+var jwt = require('express-jwt');
+var auth = jwt({
+  secret: 'MY_SECRET',
+  userProperty: 'payload'
+});
 
 module.exports = function(app) {
 
@@ -20,4 +25,11 @@ module.exports = function(app) {
   app.post('/api/roadmaps/:roadmap_id/checkpoints', checkpoints.create); // Create Checkpoint
   app.put('/api/checkpoints/:checkpoint_id', checkpoints.update); // Update Checkpoint
   app.delete('/api/checkpoints/:checkpoint_id', checkpoints.delete); // Delete Checkpoint
+
+  // -------------------------------------------
+  // USER ROUTES
+  // -------------------------------------------
+  var authentication = require('./controllers/auth')
+  app.post('/api/register', authentication.register)
+  app.post('/api/login', authentication.login)
 }

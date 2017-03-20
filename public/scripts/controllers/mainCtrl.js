@@ -1,8 +1,7 @@
 (function() {
-  function mainCtrl($http, $scope, mainFactory) {
+  function mainCtrl($http, $scope, mainFactory, authService) {
     $scope.formData = {};
     $scope.roadmaps = [];
-
 
     mainFactory.getRoadmaps()
       .then(function(res) {
@@ -34,5 +33,5 @@
 
   angular
     .module('projectRoadmap')
-    .controller('mainCtrl', ['$http', '$scope', 'mainFactory', mainCtrl]);
+    .controller('mainCtrl', ['$http', '$scope', 'mainFactory', 'authService', mainCtrl]);
 })();

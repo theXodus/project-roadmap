@@ -24,9 +24,34 @@
         templateUrl: '../views/checkpoints/edit.html',
         controller: 'roadmapCtrl as roadmap'
       })
+      .state('register', {
+        url: '/register',
+        templateUrl: '../views/users/register.html',
+        controller: 'registerCtrl as vm'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: '../views/users/login.html',
+        controller: 'loginCtrl as vm'
+      })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: '../views/users/profile.html',
+        controller: 'profileCtrl as vm'
+      })
   }
+
+  function run($rootScope, $location, authService) {
+    $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
+      if ($location.path() === '/profile' && !authService.isLoggedIn()) {
+        $location.path('roadmaps');
+      }
+    });
+  }
+
 
   angular
     .module('projectRoadmap', ['ui.router'])
-    .config(config);
+    .config(config)
+    .run(['$rootScope', '$location', 'authService', run]);
 })();

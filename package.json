@@ -12,7 +12,12 @@
   "dependencies": {
     "angular-ui-router": "^0.4.2",
     "body-parser": "^1.16.0",
+    "crypto": "0.0.3",
     "express": "^4.14.1",
-    "mongoose": "^4.8.1"
+    "express-jwt": "^5.1.0",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^4.8.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }
