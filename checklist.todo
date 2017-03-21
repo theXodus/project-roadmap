@@ -1,5 +1,6 @@
 Things to do:
   ✔ Add authentication  @done(2017-03-20 18:10) @project(Things to do)
+  ☐ Update navbar right after logging in
   ☐ User can enroll in roadmap
   ☐ User can create account
   ☐ User can edit profile

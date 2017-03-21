@@ -1,6 +1,5 @@
 (function () {
 
-
   function authService ($http, $window) {
 
     var saveToken = function (token) {
