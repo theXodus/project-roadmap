@@ -6,6 +6,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
+
+
+    <div class="navbar navbar-default" ng-controller="navCtrl as navvm">
+      <div class="container">
+        <div id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Project Roadmap</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-hide="navvm.isLoggedIn"><a href="login">Sign in</a></li>
+            <li ng-show="navvm.isLoggedIn"><a href="profile">{{ navvm.currentUser.name }}</a></li>
+            <li ng-show="navvm.isLoggedIn"><a href="/" ng-click="navvm.logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div ui-view></div>
     </div>
@@ -17,8 +34,8 @@
     <!-- Controllers -->
     <script src="/scripts/controllers/mainCtrl.js"></script>
     <script src="/scripts/controllers/roadmapCtrl.js"></script>
-    <script src="/scripts/controllers/navCtrl.js"></script>
     <script src="/scripts/controllers/profileCtrl.js"></script>
+    <script src="/scripts/controllers/navCtrl.js"></script>
     <script src="/scripts/controllers/auth/registerCtrl.js"></script>
     <script src="/scripts/controllers/auth/loginCtrl.js"></script>
     <!-- Services -->

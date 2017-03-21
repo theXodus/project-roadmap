@@ -1,10 +1,5 @@
 (function () {
 
-  angular
-    .module('projectRoadmap')
-    .service('authService', authService);
-
-  authService.$inject = ['$http', '$window'];
 
   function authService ($http, $window) {
 
@@ -59,7 +54,8 @@
     };
 
     logout = function() {
-      $window.localStorage.removeItem('user-token');
+      console.log('token deleted')
+      $window.localStorage.removeItem('user-token')
     };
 
     return {
@@ -72,6 +68,10 @@
       logout : logout
     };
   }
+
+  angular
+  .module('projectRoadmap')
+  .service('authService', ['$http', '$window', authService]);
 
 
 })();

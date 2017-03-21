@@ -4,7 +4,6 @@
 
     vm.currentUser = authService.currentUser();
 
-    vm.logout = authService.logout();
   }
 
 

@@ -11,11 +11,11 @@
     vm.onSubmit = function () {
       authService
         .login(vm.credentials)
-        .error(function(err){
+        .catch(function(err){
           alert(err);
         })
         .then(function(){
-          $location.path('users/profile');
+          $location.path('public/views/users/profile.html');
         });
     };
   }
