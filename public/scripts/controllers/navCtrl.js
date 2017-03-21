@@ -1,6 +1,6 @@
 (function () {
 
-  function navCtrl($rootScope, $location, authService) {
+  function navCtrl($location, authService) {
     var vm = this;
 
     vm.currentUser = authService.currentUser();
@@ -15,6 +15,6 @@
 
   angular
     .module('projectRoadmap')
-    .controller('navCtrl', ['$rootScope', '$location', 'authService', navCtrl]);
+    .controller('navCtrl', ['$location', 'authService', navCtrl]);
 
 })();
