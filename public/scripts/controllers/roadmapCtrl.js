@@ -1,15 +1,16 @@
 (function() {
-  function roadmapCtrl($http, $scope, $stateParams, roadmapFactory) {
+  function roadmapCtrl($http, $scope, $stateParams, roadmapFactory, authService) {
     var roadmap = this;
     roadmap.formData = {};
     roadmap.checkpoints = [];
-
     var roadmap_id = $stateParams.id;
+    $scope.currentUser = authService.currentUser();
 
     roadmapFactory.getRoadmap(roadmap_id)
       .then(function(res) {
         roadmap.checkpoints = res.data.checkpoints;
         roadmap.title = res.data.name;
+        roadmap.creator = res.data.creator
       }, function(res) {
         console.log('Error: ' + res);
       })
@@ -57,5 +58,5 @@
 
   angular
     .module('projectRoadmap')
-    .controller('roadmapCtrl', ['$http', '$scope', '$stateParams', 'roadmapFactory', roadmapCtrl]);
+    .controller('roadmapCtrl', ['$http', '$scope', '$stateParams', 'roadmapFactory', 'authService', roadmapCtrl]);
 })();

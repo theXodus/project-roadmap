@@ -2,6 +2,16 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var User = require('../models/user');
 
+
+exports.index = function(req, res) {
+  User.find(function(err, users) {
+    if (err)
+      res.send(err)
+
+    res.json(users);
+  });
+}
+
 exports.register = function(req, res) {
   var user = new User();
 

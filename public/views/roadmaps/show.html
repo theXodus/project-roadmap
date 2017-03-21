@@ -1,4 +1,5 @@
 <h1>{{roadmap.title}}</h1>
+<h5>created by {{roadmap.creator.name}}</h5>
 <div>
   <table class="table table-hover">
     <thead>
@@ -6,7 +7,7 @@
         <th>#</th>
         <th>Title</th>
         <th>Type</th>
-        <th>Options</th>
+        <th ng-show="roadmap.creator.id === currentUser.id">Options</th>
       </tr>
     </thead>
     <tr ng-repeat="checkpoint in roadmap.checkpoints">
@@ -17,7 +18,7 @@
           <input ng-model="editedCheckpoint.title" class="form-control" ng-show="roadmap.CPindex == $index">
         </td>
         <td>X</td>
-        <td>
+        <td ng-show="roadmap.creator.id === currentUser.id">
           <button type="submit" class="btn btn-warning btn-sm" ng-click="roadmap.toggleEditForm(checkpoint, $index)" ng-hide="roadmap.CPindex == $index">Edit</button>
           <button type="submit" class="btn btn-success btn-sm" ng-click="roadmap.updateCheckpoint(editedCheckpoint)" ng-show="roadmap.CPindex == $index">Save</button>
           <button type="submit" class="btn btn-danger btn-sm" ng-click="roadmap.deleteCheckpoint(checkpoint._id)">Delete</button>
@@ -29,7 +30,7 @@
 
 </div>
 
-<div class="input-group">
+<div class="input-group" ng-show="roadmap.creator.id === currentUser.id">
   <input type="text" class="form-control" ng-model="roadmap.formData.title" placeholder="New Checkpoint">
   <span class="input-group-btn">
     <button class="btn btn-success" type="submit" ng-click="roadmap.createCheckpoint()">Submit!</button>

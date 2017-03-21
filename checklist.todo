@@ -1,10 +1,28 @@
+cmd-enter	tasks:add
+shift-cmd-enter	tasks:add-above
+cmd-d	tasks:complete
+shift-cmd-A	tasks:archive
+ctrl-c	tasks:cancel
+shift-cmd-L	tasks:convert-to-task
+ctrl-s	tasks:set-timestamp
+
+Current:
+  ☐ As a user I want to implement CRUD for a roadmap with a title, time and category
+    ☐ only creator can edit or delete roadmap
+    ☐ roadmaps show up in profile
+
 Things to do:
-  ✔ Add authentication  @done(2017-03-20 18:10) @project(Things to do)
   ☐ Update navbar right after logging in
   ☐ User can enroll in roadmap
-  ☐ User can create account
   ☐ User can edit profile
   ☐ Add more error checking and validation to auth.js(register)
+
+User Stories:
+  ☐ As a user I want to implement CRUD for different subsections within a roadmap to organize content
+  ☐ As a user I want to CRUD for checkpoints that contain links and text.
+  ☐ As a user I want to be able to enroll in roadmaps to keep track of my progress
+  ☐ As a student I want to be able to mark completed checkpoints.
+  ☐ As a student I want to be able to see my progress (weeks remaining and % completed)
 
   Checkpoint:
     ☐ Three types of checkpoints(link, article, video)
@@ -13,6 +31,12 @@ Things to do:
 
 ================================================================================
 Archive:
+  ✔ Add user relationship with roadmap @done(2017-03-21 14:58) @project(Current)
+  ✔ Add estimated time to roadmap model @done(2017-03-21 14:59) @project(Current)
+  ✔ Add category to roadmap model @done(2017-03-21 14:59) @project(Current)
+  ✔ User can create account @done(2017-03-21 13:31) @project(Things to do)
+  ✔ Add authentication  @done(2017-03-20 18:10) @project(Things to do)
+  ✔ As a user I want to create an account with an email, username and password @done(2017-03-21 13:28) @project(Things to do)
   ✔ Ensure that checkpoints are deleted when a roadmap is deleted. @done(2017-03-11 01:29) @project(Things to do)
   ✔ Add/edit/delete checkpoints without refresh @done(2017-03-11 01:29) @project(Things to do)
   ✔ Split up the angular parts into their own folders and files @done(2017-03-10 14:53) @project(Things to do)

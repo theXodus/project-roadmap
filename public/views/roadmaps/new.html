@@ -1,0 +1,26 @@
+<h1>New Roadmap</h1>
+<form ng-submit="main.createRoadmap()">
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Name</label>
+    <div class="col-10">
+      <input class="form-control" type="text" ng-model="formData.name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Estimated Time</label>
+    <div class="col-10">
+      <input class="form-control" type="text" ng-model="formData.estimatedTime">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Category</label>
+    <div class="col-10">
+      <select class="form-control" ng-model="formData.category">
+        <option>Coding</option>
+        <option>Cooking</option>
+        <option>Language</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default">Create Roadmap</button>
+</form>

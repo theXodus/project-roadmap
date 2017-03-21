@@ -3,6 +3,9 @@ var Checkpoint = require('../models/checkpoint');
 
 var roadmapSchema = mongoose.Schema({
   name: String,
+  category: String,
+  estimatedTime: Number,
+  creator: {},
   checkpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: "Checkpoint"}]
 })
 

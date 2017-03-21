@@ -1,13 +1,7 @@
 <ul class="list-group" ng-repeat="roadmap in roadmaps">
-  <li class="list-group-item"><a ui-sref="roadmap({id:roadmap._id})">{{roadmap.name}}</a><button class="btn btn-danger btn-sm" ng-click="main.deleteRoadmap(roadmap._id)">X</button></li>
+  <li class="list-group-item"><a ui-sref="roadmap({id:roadmap._id})"> <h3>{{roadmap.name}}</h3></a> created by {{roadmap.creator.name}}
+
+    <button class="btn btn-danger btn-sm" ng-click="main.deleteRoadmap(roadmap._id)" ng-show="roadmap.creator.id === currentUser.id">X</button></li>
 </ul>
-<div class="row">
-  <div class="col-lg-4">
-    <div class="input-group">
-      <input type="text" class="form-control" ng-model="formData.name" placeholder="New Roadmap">
-      <span class="input-group-btn">
-        <button class="btn btn-success" type="submit" ng-click="main.createRoadmap()" novalidate>Submit!</button>
-      </span>
-    </div>
-  </div>
-</div>
+
+<button type="button" name="button" class="btn btn-success btn-lg" ui-sref="roadmap/new">New Roadmap</button>

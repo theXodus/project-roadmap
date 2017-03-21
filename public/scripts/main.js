@@ -19,6 +19,11 @@
         templateUrl: '../views/roadmaps/show.html',
         controller: 'roadmapCtrl as roadmap'
       })
+      .state('roadmap/new', {
+        url: '/roadmap/new',
+        templateUrl: '../views/roadmaps/new.html',
+        controller: 'mainCtrl as main'
+      })
       .state('checkpoint', {
         url: '/roadmaps/:id/checkpoints/:cpid/edit',
         templateUrl: '../views/checkpoints/edit.html',

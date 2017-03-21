@@ -30,6 +30,7 @@ module.exports = function(app) {
   // USER ROUTES
   // -------------------------------------------
   var authentication = require('./controllers/auth')
+  app.get('/api/users', authentication.index)
   app.post('/api/register', authentication.register)
   app.post('/api/login', authentication.login)
 }

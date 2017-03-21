@@ -2,6 +2,7 @@
   function mainCtrl($http, $scope, mainFactory, authService) {
     $scope.formData = {};
     $scope.roadmaps = [];
+    $scope.currentUser = authService.currentUser();
 
     mainFactory.getRoadmaps()
       .then(function(res) {
@@ -12,6 +13,9 @@
       });
 
     this.createRoadmap = function() {
+      var user = authService.currentUser()
+      $scope.formData.creator = user;
+      console.log($scope.formData)
       mainFactory.createRoadmap($scope.formData)
         .then(function(res) {
           $scope.formData = {};

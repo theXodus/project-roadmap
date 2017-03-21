@@ -17,7 +17,6 @@ exports.show = function(req, res) {
     if (err)
       res.send(err);
 
-    console.log(roadmap.checkpoints)
     res.json(roadmap);
   })
 }
@@ -25,6 +24,9 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Roadmap.create({
     name: req.body.name,
+    category: req.body.category,
+    estimatedTime: req.body.estimatedTime,
+    creator: req.body.creator,
     done: false
   }, function(err, roadmap) {
     if (err)
