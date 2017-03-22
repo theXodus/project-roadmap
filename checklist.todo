@@ -7,19 +7,15 @@ shift-cmd-L	tasks:convert-to-task
 ctrl-s	tasks:set-timestamp
 
 Current:
-  ☐ As a user I want to implement CRUD for a roadmap with a title, time and category
-    ☐ only creator can edit or delete roadmap
-    ☐ roadmaps show up in profile
+  ☐ As a user I want CRUD for checkpoints that contain links and text.
 
 Things to do:
-  ☐ Update navbar right after logging in
   ☐ User can enroll in roadmap
   ☐ User can edit profile
   ☐ Add more error checking and validation to auth.js(register)
 
 User Stories:
   ☐ As a user I want to implement CRUD for different subsections within a roadmap to organize content
-  ☐ As a user I want to CRUD for checkpoints that contain links and text.
   ☐ As a user I want to be able to enroll in roadmaps to keep track of my progress
   ☐ As a student I want to be able to mark completed checkpoints.
   ☐ As a student I want to be able to see my progress (weeks remaining and % completed)
@@ -31,6 +27,11 @@ User Stories:
 
 ================================================================================
 Archive:
+  ✔ Update navbar right after logging in @done(2017-03-22 13:39) @project(Things to do)
+  ✔ As a user I want to implement CRUD for a roadmap with a title, time and category @done(2017-03-22 13:39) @project(Current)
+  ✔ roadmaps show up in profile @done(2017-03-22 13:39) @project(Current)
+  ✔ only creator can edit or delete roadmap (backend) @done(2017-03-21 23:58) @project(Current)
+  ✔ only creator can edit or delete roadmap (frontend) @done(2017-03-21 18:28) @project(Current)
   ✔ Add user relationship with roadmap @done(2017-03-21 14:58) @project(Current)
   ✔ Add estimated time to roadmap model @done(2017-03-21 14:59) @project(Current)
   ✔ Add category to roadmap model @done(2017-03-21 14:59) @project(Current)

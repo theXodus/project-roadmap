@@ -1,2 +1,9 @@
 <h1>user: {{vm.currentUser.name}}</h1>
 <h1>email: {{vm.currentUser.email}}</h1>
+
+<h1>Your Roadmaps</h1>
+<ul>
+  <li ng-repeat="roadmap in vm.roadmaps" ng-show="roadmap.creator.id === vm.currentUser.id"> <a ui-sref="roadmap({id:roadmap._id})">{{roadmap.name}}</a></li>
+</ul>
+
+<h1>Enrolled Roadmaps</h1>

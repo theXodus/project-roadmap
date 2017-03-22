@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
+var Roadmap = require('../models/roadmap');
 
 var userSchema = mongoose.Schema({
   email: {
@@ -15,7 +16,7 @@ var userSchema = mongoose.Schema({
   hash: String,
   salt: String
 })
-
+//
 userSchema.methods.setPassword = function(password){
   this.salt = crypto.randomBytes(16).toString('hex');
   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha1').toString('hex');

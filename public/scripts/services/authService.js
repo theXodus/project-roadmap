@@ -1,6 +1,6 @@
 (function () {
 
-  function authService ($http, $window) {
+  function authService ($rootScope, $http, $window) {
 
     var saveToken = function (token) {
       console.log("saveToken: " + token)
@@ -50,6 +50,7 @@
     login = function(user) {
       return $http.post('/api/login', user).then(function(data) {
         saveToken(data.data.token);
+        $rootScope.$broadcast('login');
       });
     };
 
@@ -71,7 +72,7 @@
 
   angular
   .module('projectRoadmap')
-  .service('authService', ['$http', '$window', authService]);
+  .service('authService', ['$rootScope', '$http', '$window', authService]);
 
 
 })();

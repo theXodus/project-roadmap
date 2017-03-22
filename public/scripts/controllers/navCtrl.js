@@ -1,10 +1,18 @@
 (function () {
 
-  function navCtrl($location, authService) {
+  function navCtrl($scope, $location, authService) {
     var vm = this;
 
     vm.currentUser = authService.currentUser();
-    vm.isLoggedIn = authService.isLoggedIn();
+
+    $scope.$on('login', function() {
+      console.log('checking login');
+      vm.currentUser = authService.currentUser();
+    })
+
+    vm.isLoggedIn = function() {
+      return authService.isLoggedIn();
+    }
     vm.logout =  function() {
       authService.logout()
       vm.currentUser = null;
@@ -15,6 +23,6 @@
 
   angular
     .module('projectRoadmap')
-    .controller('navCtrl', ['$location', 'authService', navCtrl]);
+    .controller('navCtrl', ['$scope', '$location', 'authService', navCtrl]);
 
 })();

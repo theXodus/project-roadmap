@@ -1,5 +1,5 @@
 (function() {
-  function mainFactory($http) {
+  function mainFactory(authService, $http) {
     var mainFactory = {};
 
     mainFactory.getRoadmaps = function() {
@@ -7,11 +7,11 @@
     }
 
     mainFactory.createRoadmap = function(data) {
-      return $http.post('/api/roadmaps', data);
+      return $http.post('/api/roadmaps', data, { headers: { Authorization: 'Bearer ' + authService.getToken()}});
     }
 
     mainFactory.deleteRoadmap = function(id) {
-      return $http.delete('/api/roadmaps/' + id)
+      return $http.delete('/api/roadmaps/' + id, { headers: { Authorization: 'Bearer ' + authService.getToken()}})
     }
 
     return mainFactory;
@@ -19,5 +19,5 @@
 
   angular
     .module('projectRoadmap')
-    .factory('mainFactory', ['$http', mainFactory]);
+    .factory('mainFactory', ['authService', '$http', mainFactory]);
 })();

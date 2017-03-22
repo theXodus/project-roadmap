@@ -1,7 +1,7 @@
 var Checkpoint = require('./models/checkpoint');
 var jwt = require('express-jwt');
 var auth = jwt({
-  secret: 'MY_SECRET',
+  secret: 'nvwvrhycms',
   userProperty: 'payload'
 });
 
@@ -12,10 +12,10 @@ module.exports = function(app) {
   // -------------------------------------------
   var roadmaps = require('./controllers/roadmaps')
   app.get('/api/roadmaps', roadmaps.index); // Get all Roadmaps
-  app.post('/api/roadmaps', roadmaps.create); // Create Roadmap
+  app.post('/api/roadmaps', auth, roadmaps.create); // Create Roadmap
   app.get('/api/roadmaps/:roadmap_id', roadmaps.show); // Get a single Roadmap
-  app.put('/api/roadmaps/:roadmap_id', roadmaps.update) // Update Roadmap
-  app.delete('/api/roadmaps/:roadmap_id', roadmaps.delete); // Delete Roadmap
+  app.put('/api/roadmaps/:roadmap_id', auth, roadmaps.update) // Update Roadmap
+  app.delete('/api/roadmaps/:roadmap_id', auth, roadmaps.delete); // Delete Roadmap
 
   // -------------------------------------------
   // CHECKPOINT ROUTES
@@ -30,7 +30,7 @@ module.exports = function(app) {
   // USER ROUTES
   // -------------------------------------------
   var authentication = require('./controllers/auth')
-  app.get('/api/users', authentication.index)
-  app.post('/api/register', authentication.register)
-  app.post('/api/login', authentication.login)
+  app.get('/api/users', authentication.index) // list all users
+  app.post('/api/register', authentication.register) // create new user
+  app.post('/api/login', authentication.login) // login
 }

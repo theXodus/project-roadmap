@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var User = require('../models/User');
+var Roadmap = require('../models/Roadmap');
 
-module.exports.profileRead = function(req, res) {
+exports.profileRead = function(req, res) {
 
   if (!req.payload._id) {
     res.status(401).json({
